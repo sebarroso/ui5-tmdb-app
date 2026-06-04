@@ -1,0 +1,83 @@
+<mvc:View
+    controllerName="demo.tmdb.controller.Main"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    displayBlock="true">
+
+    <App id="app">
+        <pages>
+            <Page title="🎬 Buscador de Películas de Sebarroso">
+                <content>
+                    <VBox class="sapUiMediumMargin">
+
+                        <!-- Barra de búsqueda -->
+                        <HBox alignItems="Center" class="sapUiSmallMarginBottom">
+                            <SearchField
+                                id="searchField"
+                                placeholder="Ej: Matrix, Esperando la carroza, Inception..."
+                                width="400px"
+                                search=".onSearch"/>
+                            <Button
+                                text="Buscar"
+                                type="Emphasized"
+                                press=".onSearch"
+                                class="sapUiSmallMarginBegin"/>
+                        </HBox>
+
+                        <!-- Mensaje de estado -->
+                        <Text
+                            text="{appState>/statusMessage}"
+                            visible="{= !!${appState>/statusMessage} }"
+                            class="sapUiSmallMarginBottom"/>
+
+                        <!-- Spinner -->
+                        <BusyIndicator
+                            visible="{appState>/busy}"
+                            size="1rem"
+                            class="sapUiSmallMarginBottom"/>
+
+                        <!-- Lista de resultados -->
+                        <List
+                            id="movieList"
+                            items="{movies>/results}"
+                            noDataText="Sin resultados"
+                            mode="SingleSelectMaster"
+                            selectionChange=".onMovieSelect">
+                            <ObjectListItem
+                                title="{movies>title}"
+                                number="{movies>vote_average}"
+                                numberUnit="⭐"
+                                intro="{movies>release_date}"
+                                icon="sap-icon://video"
+                                type="Active">
+                                <attributes>
+                                    <ObjectAttribute text="{movies>original_language}"/>
+                                </attributes>
+                            </ObjectListItem>
+                        </List>
+
+                        <!-- Paginación -->
+                        <HBox
+                            justifyContent="Center"
+                            class="sapUiMediumMarginTop"
+                            visible="{appState>/showPaging}">
+                            <Button
+                                text="← Anterior"
+                                press=".onPrevPage"
+                                enabled="{= ${appState>/currentPage} > 1 }"/>
+                            <Text
+                                text="Página {appState>/currentPage} de {appState>/totalPages}"
+                                class="sapUiSmallMarginBeginEnd sapUiSmallMarginTop"/>
+                            <Button
+                                text="Siguiente →"
+                                press=".onNextPage"
+                                enabled="{= ${appState>/currentPage} &lt; ${appState>/totalPages} }"/>
+                        </HBox>
+
+                    </VBox>
+                </content>
+            </Page>
+        </pages>
+    </App>
+
+</mvc:View>

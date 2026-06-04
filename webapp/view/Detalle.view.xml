@@ -1,0 +1,72 @@
+<mvc:View
+    controllerName="demo.tmdb.controller.Detalle"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:l="sap.ui.layout"
+    displayBlock="true">
+
+    <Page
+        title="Detalle de Película"
+        showNavButton="true"
+        navButtonPress=".onNavBack">
+
+        <content>
+            <BusyIndicator
+                visible="{detalle>/busy}"
+                size="2rem"
+                class="sapUiMediumMargin"/>
+
+            <VBox
+                class="sapUiMediumMargin"
+                visible="{= !${detalle>/busy} }">
+
+                <!-- Poster + datos principales -->
+                <HBox alignItems="Start" class="sapUiSmallMarginBottom">
+
+                    <!-- Poster -->
+                    <Image
+                        src="{detalle>/posterUrl}"
+                        width="150px"
+                        height="225px"
+                        class="sapUiSmallMarginEnd"
+                        decorative="false"
+                        alt="{detalle>/title}"/>
+
+                    <!-- Info principal -->
+                    <VBox>
+                        <Title text="{detalle>/title}" level="H2"/>
+                        <Text
+                            text="{detalle>/tagline}"
+                            class="sapUiSmallMarginBottom sapUiSmallMarginTop"/>
+                        <ObjectStatus
+                            text="{detalle>/vote_average}"
+                            icon="sap-icon://favorite"
+                            state="Success"/>
+                        <ObjectStatus
+                            text="{detalle>/release_date}"
+                            icon="sap-icon://calendar"
+                            class="sapUiSmallMarginTop"/>
+                        <ObjectStatus
+                            text="{detalle>/runtime} min"
+                            icon="sap-icon://time-entry-request"
+                            class="sapUiSmallMarginTop"/>
+                        <ObjectStatus
+                            text="{detalle>/genres}"
+                            icon="sap-icon://tag"
+                            class="sapUiSmallMarginTop"/>
+                    </VBox>
+
+                </HBox>
+
+                <!-- Sinopsis -->
+                <Title text="Sinopsis" level="H4" class="sapUiSmallMarginTop"/>
+                <Text
+                    text="{detalle>/overview}"
+                    wrapping="true"
+                    class="sapUiSmallMarginTop"/>
+
+            </VBox>
+        </content>
+    </Page>
+
+</mvc:View>

@@ -1,0 +1,18 @@
+{
+  "name": "demo.tmdb",
+  "version": "1.0.0",
+  "description": "Mini app UI5 - TMDB",
+  "scripts": {
+    "start": "npx --no-install ui5 serve --config ui5.yaml --open index.html",
+    "start-mobile": "http-server ./webapp -p 8080 --cors"
+  },
+  "devDependencies": {
+    "@sap/ux-ui5-tooling": "^1",
+    "@ui5/cli": "^3"
+  },
+  "ui5": {
+    "dependencies": [
+      "@sap/ux-ui5-tooling"
+    ]
+  }
+}

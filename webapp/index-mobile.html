@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscador de Películas de Sebarroso</title>
+    <script id="sap-ui-bootstrap" src="https://ui5.sap.com/resources/sap-ui-core.js" data-sap-ui-theme="sap_fiori_3"
+        data-sap-ui-resourceroots='{"demo.tmdb": "./"}' data-sap-ui-compatVersion="edge"
+        data-sap-ui-oninit="module:sap/ui/core/ComponentSupport" data-sap-ui-async="true"
+        data-sap-ui-frameOptions="trusted">
+        </script>
+        <script>
+            window.APP_CONFIG = {
+                TMDB_API_KEY: "026ba74f5540119add46cac794f83b96",
+                TMDB_API_BASE: "https://api.themoviedb.org/3"
+            };
+        </script>
+</head>
+
+<body class="sapUiBody">
+    <div data-sap-ui-component data-name="demo.tmdb" data-id="container" data-settings='{"id": "tmdb"}'>
+    </div>
+</body>
+
+</html>
