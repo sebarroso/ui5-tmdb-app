@@ -7,8 +7,9 @@ sap.ui.define([
 
     // var API_KEY  = "026ba74f5540119add46cac794f83b96";
     // var API_BASE = "https://api.themoviedb.org/3";
-    var API_KEY  = window.APP_CONFIG.TMDB_API_KEY;
-    var API_BASE = window.APP_CONFIG.TMDB_API_BASE;
+    var API_KEY   = window.APP_CONFIG.TMDB_API_KEY;
+    var API_BASE  = window.APP_CONFIG.TMDB_API_BASE;
+    var POSTER_BASE = "https://image.tmdb.org/t/p/w300";
 
     return Controller.extend("demo.tmdb.controller.Main", {
 
@@ -99,6 +100,16 @@ sap.ui.define([
             })
             .then(function (oData) {
                 var nTotal = oData.total_pages || 1;
+
+                // Armar URL del poster para cada resultado
+                if (oData.results) {
+                    oData.results.forEach(function (oMovie) {
+                        oMovie.posterUrl = oMovie.poster_path
+                            ? POSTER_BASE + oMovie.poster_path
+                            : "";
+                    });
+                }
+
                 oMovies.setData(oData);
                 oAppState.setProperty("/totalPages", nTotal);
                 oAppState.setProperty("/showPaging", nTotal > 1);
