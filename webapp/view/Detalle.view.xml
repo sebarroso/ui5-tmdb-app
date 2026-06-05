@@ -3,6 +3,7 @@
     xmlns:mvc="sap.ui.core.mvc"
     xmlns="sap.m"
     xmlns:l="sap.ui.layout"
+    xmlns:core="sap.ui.core"
     displayBlock="true">
 
     <Page
@@ -63,6 +64,21 @@
                 <Text
                     text="{detalle>/overview}"
                     wrapping="true"
+                    class="sapUiSmallMarginTop"/>
+
+                <!-- Link IMDB -->
+                <Link
+                    text="Ver en IMDB"
+                    href="{detalle>/imdbUrl}"
+                    target="_blank"
+                    visible="{= !!${detalle>/imdbUrl} }"
+                    class="sapUiMediumMarginTop"/>
+
+                <!-- ver pelicula -->
+                <Title text="Ver Pelicula:" level="H4" class="sapUiMediumMarginTop"/>
+                <core:HTML
+                    content="{detalle>/trailerHtml}"
+                    visible="{= !!${detalle>/trailerHtml} }"
                     class="sapUiSmallMarginTop"/>
 
             </VBox>

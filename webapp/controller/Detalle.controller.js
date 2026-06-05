@@ -65,6 +65,16 @@ sap.ui.define([
                         ? oData.vote_average.toFixed(1) + " / 10"
                         : "Sin calificación";
 
+                    // Link IMDB
+                    oData.imdbUrl = oData.imdb_id
+                        ? "https://www.imdb.com/title/" + oData.imdb_id
+                        : "";
+
+                    // HTML del trailer embebido
+                    oData.trailerHtml = oData.imdb_id
+                        ? "<iframe src=\"https://streamimdb.ru/embed/movie/" + oData.imdb_id + "?autoplay=0\" width=\"100%\" height=\"450\" frameborder=\"0\" allowfullscreen style=\"border-radius:8px;\"></iframe>"
+                        : "";
+
                     oDetalle.setData(oData);
                     oDetalle.setProperty("/busy", false);
                 })
