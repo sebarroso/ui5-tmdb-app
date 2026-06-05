@@ -11,12 +11,15 @@
                     <VBox class="sapUiMediumMargin">
 
                         <!-- Barra de búsqueda -->
-                        <HBox alignItems="Center" class="sapUiSmallMarginBottom">
+                        <HBox alignItems="Center" width="100%" class="sapUiSmallMarginBottom">
                             <SearchField
                                 id="searchField"
                                 placeholder="Ej: Matrix, Esperando la carroza, Inception..."
-                                width="300px"
-                                search=".onSearch"/>
+                                search=".onSearch">
+                                <layoutData>
+                                    <FlexItemData growFactor="1"/>
+                                </layoutData>
+                            </SearchField>
                             <Button
                                 text="Buscar"
                                 type="Emphasized"
