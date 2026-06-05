@@ -9,9 +9,13 @@
             <Page title="🎬 Buscador de Películas de Sebarroso">
                 <content>
                     <VBox class="sapUiMediumMargin">
-
+                        <!-- <Button
+                            text="🎬 El Top 50 de Sebarroso"
+                            type="Emphasized"
+                            press=".onNavTop50"
+                            class="sapUiSmallMarginBottom"/> -->
                         <!-- Barra de búsqueda -->
-                        <HBox alignItems="Center" width="100%" class="sapUiSmallMarginBottom">
+                        <HBox alignItems="Center" width="{= ${device>/system/phone} ? '100%' : '30%' }" class="sapUiSmallMarginBottom">
                             <SearchField
                                 id="searchField"
                                 placeholder="Ej: Matrix, Esperando la carroza, Inception..."
@@ -88,6 +92,16 @@
 
                     </VBox>
                 </content>
+                <footer>
+                    <Bar>
+                        <contentMiddle>
+                            <Link
+                                text="🎬 El Top 50 de Sebarroso"
+                                press=".onNavTop50"
+                                emphasized="true"/>
+                        </contentMiddle>
+                    </Bar>
+                </footer>
             </Page>
         </pages>
     </App>
