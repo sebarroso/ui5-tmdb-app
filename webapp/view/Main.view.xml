@@ -1,4 +1,4 @@
-<mvc:View
+﻿<mvc:View
     controllerName="demo.tmdb.controller.Main"
     xmlns:mvc="sap.ui.core.mvc"
     xmlns="sap.m"
@@ -15,7 +15,7 @@
                             <SearchField
                                 id="searchField"
                                 placeholder="Ej: Matrix, Esperando la carroza, Inception..."
-                                width="400px"
+                                width="300px"
                                 search=".onSearch"/>
                             <Button
                                 text="Buscar"
@@ -41,19 +41,28 @@
                             id="movieList"
                             items="{movies>/results}"
                             noDataText="Sin resultados"
-                            mode="SingleSelectMaster"
-                            selectionChange=".onMovieSelect">
-                            <ObjectListItem
-                                title="{movies>title}"
-                                number="{movies>vote_average}"
-                                numberUnit="⭐"
-                                intro="{movies>release_date}"
-                                icon="sap-icon://video"
-                                type="Active">
-                                <attributes>
-                                    <ObjectAttribute text="{movies>original_language}"/>
-                                </attributes>
-                            </ObjectListItem>
+                            mode="None"
+                            itemPress=".onMovieSelect">
+                            <CustomListItem type="Active">
+                                <HBox alignItems="Center" class="sapUiSmallMarginBeginEnd sapUiSmallMarginTopBottom">
+                                    <Image
+                                        src="{movies>posterUrl}"
+                                        width="60px"
+                                        height="90px"
+                                        class="sapUiSmallMarginEnd"
+                                        decorative="false"
+                                        alt="{movies>title}"/>
+                                    <VBox justifyContent="Center">
+                                        <Title text="{movies>title}" level="H5"/>
+                                        <Text text="{movies>release_date}" class="sapUiTinyMarginTop"/>
+                                        <ObjectStatus
+                                            text="{movies>vote_average} ⭐"
+                                            state="Success"
+                                            class="sapUiTinyMarginTop"/>
+                                        <Text text="{movies>original_language}" class="sapUiTinyMarginTop"/>
+                                    </VBox>
+                                </HBox>
+                            </CustomListItem>
                         </List>
 
                         <!-- Paginación -->
