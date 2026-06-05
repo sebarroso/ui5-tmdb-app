@@ -54,7 +54,7 @@
                         <ObjectStatus
                             text="{detalle>/genres}"
                             icon="sap-icon://tag"
-                            class="sapUiSmallMarginTop"/>
+                            class="sapUiSmallMarginTop"/>                        
                     </VBox>
 
                 </HBox>

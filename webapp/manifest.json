@@ -57,7 +57,12 @@
           "name": "RouteDetalle",
           "pattern": "detalle/{movieId}",
           "target": ["TargetDetalle"]
-        }
+        },
+        {
+          "name": "RouteTop50",
+          "pattern": "top50",
+          "target": ["TargetTop50"]
+      }
       ],
       "targets": {
         "TargetMain": {
@@ -69,6 +74,11 @@
           "viewType": "XML",
           "transition": "slide",
           "viewName": "Detalle"
+        },
+        "TargetTop50": {
+            "viewType": "XML",
+            "transition": "slide",
+            "viewName": "Top50"
         }
       }
     }

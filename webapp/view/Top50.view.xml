@@ -1,0 +1,60 @@
+<mvc:View
+    controllerName="demo.tmdb.controller.Top50"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    displayBlock="true">
+
+    <Page
+        title="🎬 El Top 50 de Sebarroso"
+        showNavButton="true"
+        navButtonPress=".onNavBack">
+
+        <content>
+            <List
+                id="top50List"
+                items="{top50>/movies}">
+                <CustomListItem
+                    type="Active"
+                    press=".onMoviePress">
+                    <HBox alignItems="Center" class="sapUiSmallMargin">
+
+                        <!-- Poster -->
+                        <Image
+                            src="{top50>posterUrl}"
+                            width="50px"
+                            height="75px"
+                            class="sapUiSmallMarginEnd"
+                            decorative="false"/>
+
+                        <!-- Datos -->
+                        <VBox>
+                            <Title
+                                text="{top50>position}. {top50>title}"
+                                level="H5"/>
+                            <Text
+                                text="{top50>year} · {top50>director}"
+                                class="sapUiSmallMarginBottom"/>
+                            <HBox>
+                                <ObjectStatus
+                                    text="IMDB: {top50>imdbRating}"
+                                    icon="sap-icon://world"
+                                    state="Success"/>
+                                <ObjectStatus
+                                    text="Mi nota: {top50>myRating}"
+                                    icon="sap-icon://favorite"
+                                    state="Warning"
+                                    class="sapUiSmallMarginBegin"/>
+                            </HBox>
+                            <Text
+                                text="{top50>genres}"
+                                class="sapUiSmallMarginTop"/>
+                        </VBox>
+
+                    </HBox>
+                </CustomListItem>
+            </List>
+        </content>
+
+    </Page>
+
+</mvc:View>

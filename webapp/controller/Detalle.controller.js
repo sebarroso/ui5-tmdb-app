@@ -5,8 +5,6 @@ sap.ui.define([
 ], function (Controller, JSONModel, History) {
     "use strict";
 
-    // var API_KEY = "026ba74f5540119add46cac794f83b96";
-    // var API_BASE = "https://api.themoviedb.org/3";
     var API_KEY  = window.APP_CONFIG.TMDB_API_KEY;
     var API_BASE = window.APP_CONFIG.TMDB_API_BASE;
     var POSTER_BASE = "https://image.tmdb.org/t/p/w300";

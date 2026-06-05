@@ -99,7 +99,12 @@
                                 text="🎬 El Top 50 de Sebarroso"
                                 press=".onNavTop50"
                                 emphasized="true"/>
+                              
                         </contentMiddle>
+                        <contentRight>
+                        <Link text="Disclaimer" press=".onDisclaimer"/>  
+                        </contentRight>
+                        
                     </Bar>
                 </footer>
             </Page>
