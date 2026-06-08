@@ -10,6 +10,13 @@
         title="Detalle de Película"
         showNavButton="true"
         navButtonPress=".onNavBack">
+        <headerContent>
+            <Button
+                icon="sap-icon://share-2"
+                text="Compartir"
+                press=".onShare"
+                type="Transparent"/>
+        </headerContent>
 
         <content>
             <BusyIndicator
