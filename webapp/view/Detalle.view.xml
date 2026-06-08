@@ -82,10 +82,13 @@
                     class="sapUiMediumMarginTop"/>
 
                 <!-- ver pelicula -->
-                <Title text="Ver Pelicula:" level="H4" class="sapUiMediumMarginTop"/>
-                <core:HTML
-                    content="{detalle>/trailerHtml}"
-                    visible="{= !!${detalle>/trailerHtml} }"
+                <Title text="Ver Película:" level="H4" class="sapUiMediumMarginTop"/>
+                <Button
+                    text="🎬 Ver en Streamimdb"
+                    type="Emphasized"
+                    icon="sap-icon://video"
+                    press=".onOpenTrailer"
+                    visible="{= !!${detalle>/streamimdbUrl} }"
                     class="sapUiSmallMarginTop"/>
 
             </VBox>

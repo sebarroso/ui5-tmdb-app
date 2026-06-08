@@ -68,9 +68,9 @@ sap.ui.define([
                         ? "https://www.imdb.com/title/" + oData.imdb_id
                         : "";
 
-                    // HTML del trailer embebido
-                    oData.trailerHtml = oData.imdb_id
-                        ? "<iframe src=\"https://streamimdb.ru/embed/movie/" + oData.imdb_id + "?autoplay=0\" width=\"100%\" height=\"450\" frameborder=\"0\" allowfullscreen style=\"border-radius:8px;\"></iframe>"
+                    // URL para ver la película en streamimdb (abre en nueva pestaña)
+                    oData.streamimdbUrl = oData.imdb_id
+                        ? "https://streamimdb.ru/embed/movie/" + oData.imdb_id
                         : "";
 
                     oDetalle.setData(oData);
@@ -80,6 +80,13 @@ sap.ui.define([
                     console.error("Error cargando detalle:", oError);
                     oDetalle.setProperty("/busy", false);
                 });
+        },
+
+        onOpenTrailer: function () {
+            var sUrl = this.getView().getModel("detalle").getProperty("/streamimdbUrl");
+            if (sUrl) {
+                window.open(sUrl, "_blank");
+            }
         },
 
         onShare: function () {
