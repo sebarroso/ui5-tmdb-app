@@ -83,11 +83,14 @@
 
                 <!-- ver pelicula -->
                 <Title text="Ver Película:" level="H4" class="sapUiMediumMarginTop"/>
-                <Button
-                    text="🎬 Ver en Streamimdb"
-                    type="Emphasized"
-                    icon="sap-icon://video"
-                    press=".onOpenTrailer"
+                <core:HTML
+                    content="{detalle>/trailerHtml}"
+                    visible="{= !!${detalle>/trailerHtml} }"
+                    class="sapUiSmallMarginTop"/>
+                <Link
+                    text="🎬 Abrir en Streamimdb"
+                    href="{detalle>/streamimdbUrl}"
+                    target="_blank"
                     visible="{= !!${detalle>/streamimdbUrl} }"
                     class="sapUiSmallMarginTop"/>
 

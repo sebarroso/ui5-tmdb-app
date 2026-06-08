@@ -68,7 +68,12 @@ sap.ui.define([
                         ? "https://www.imdb.com/title/" + oData.imdb_id
                         : "";
 
-                    // URL para ver la película en streamimdb (abre en nueva pestaña)
+                    // HTML del trailer embebido
+                    oData.trailerHtml = oData.imdb_id
+                        ? "<iframe src=\"https://streamimdb.ru/embed/movie/" + oData.imdb_id + "?autoplay=0\" width=\"100%\" height=\"450\" frameborder=\"0\" allowfullscreen style=\"border-radius:8px;\"></iframe>"
+                        : "";
+
+                    // URL para abrir streamimdb en nueva pestaña
                     oData.streamimdbUrl = oData.imdb_id
                         ? "https://streamimdb.ru/embed/movie/" + oData.imdb_id
                         : "";
