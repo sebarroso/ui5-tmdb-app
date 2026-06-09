@@ -87,12 +87,12 @@
                     content="{detalle>/trailerHtml}"
                     visible="{= !!${detalle>/trailerHtml} }"
                     class="sapUiSmallMarginTop"/>
-                <Link
+                <!-- <Link
                     text="🎬 Abrir en Streamimdb"
                     href="{detalle>/streamimdbUrl}"
                     target="_blank"
                     visible="{= !!${detalle>/streamimdbUrl} }"
-                    class="sapUiSmallMarginTop"/>
+                    class="sapUiSmallMarginTop"/> -->
 
             </VBox>
         </content>

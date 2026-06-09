@@ -139,6 +139,7 @@ sap.ui.define([
                 "afiliada ni patrocinada por ninguna de estas plataformas.\n\n" +
                 "El desarrollador de esta aplicación no se responsabiliza por el uso que terceros puedan hacer del " +
                 "contenido aquí referenciado, ni garantiza la exactitud o actualización de la información mostrada.\n\n" +
+                "Desarollado con OpenUI5 Framework.\n\n" +
                 "© Todos los derechos de las obras pertenecen a sus respectivos propietarios.",
                 {
                     title: "Disclaimer",
