@@ -69,6 +69,10 @@ sap.ui.define([
                         : "";
 
                     // HTML del trailer embebido
+                    // Nota: streamimdb.ru no tiene documentación pública de parámetros URL.
+                    // Se investigó la posibilidad de configurar subtítulos en español via parámetros
+                    // (?lang=es, ?sub=es, ?subtitle=es, etc.) pero el sitio no los soporta por URL.
+                    // Los subtítulos deben seleccionarse manualmente desde la interfaz del player.
                     oData.trailerHtml = oData.imdb_id
                         ? "<iframe src=\"https://streamimdb.ru/embed/movie/" + oData.imdb_id + "?autoplay=0\" width=\"100%\" height=\"450\" frameborder=\"0\" allowfullscreen style=\"border-radius:8px;\"></iframe>"
                         : "";
